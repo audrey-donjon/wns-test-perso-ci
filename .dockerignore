@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Git
+.git
+.gitignore
+
+# Build local
+dist/
+
+# Test files
+test/
+*.spec.js
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker config
+.dockerignore
