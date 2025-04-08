@@ -2,10 +2,14 @@ name: ci
 
 on:
     push:
+        branches: main
 
 jobs:
-    docker:
+    main:
         runs-on: ubuntu-latest
+        env:
+            GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
         steps:
         -
             name: Login to Docker Hub
@@ -24,4 +28,7 @@ jobs:
             uses: docker/build-push-action@v6
             with:
                 push: true
-                tags: user/app:latest
+                tags: ${{ secrets. DOCKERHUB_REPO }}: latest
+        -
+            name: Image digest
+            run: echo ${{ steps.docker_build. outputs.digest }}
